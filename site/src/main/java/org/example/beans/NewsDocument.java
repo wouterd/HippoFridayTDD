@@ -1,13 +1,20 @@
 package org.example.beans;
 
-import java.util.Calendar;
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoDocument;
-import org.hippoecm.hst.content.beans.standard.HippoGalleryImageSet;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
+import org.onehippo.cms7.essentials.components.rest.adapters.HippoHtmlAdapter;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
-import org.example.beans.Imageset;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import java.util.Calendar;
+
+@XmlRootElement(name = "newsdocument")
+@XmlAccessorType(XmlAccessType.NONE)
 @HippoEssentialsGenerated(internalName = "gogreen:newsdocument")
 @Node(jcrType = "gogreen:newsdocument")
 public class NewsDocument extends HippoDocument {
@@ -28,6 +35,7 @@ public class NewsDocument extends HippoDocument {
 	 * Get the title of the document.
 	 * @return the title
 	 */
+	@XmlElement
 	@HippoEssentialsGenerated(internalName = "gogreen:title")
 	public String getTitle() {
 		return getProperty(TITLE);
@@ -37,6 +45,7 @@ public class NewsDocument extends HippoDocument {
 	 * Get the date of the document.
 	 * @return the date
 	 */
+	@XmlElement
 	@HippoEssentialsGenerated(internalName = "gogreen:date")
 	public Calendar getDate() {
 		return getProperty(DATE);
@@ -46,6 +55,7 @@ public class NewsDocument extends HippoDocument {
 	 * Get the introduction of the document.
 	 * @return the introduction
 	 */
+	@XmlElement
 	@HippoEssentialsGenerated(internalName = "gogreen:introduction")
 	public String getIntroduction() {
 		return getProperty(INTRODUCTION);
@@ -55,6 +65,8 @@ public class NewsDocument extends HippoDocument {
 	 * Get the main content of the document.
 	 * @return the content
 	 */
+	@XmlJavaTypeAdapter(HippoHtmlAdapter.class)
+	@XmlElement
 	@HippoEssentialsGenerated(internalName = "gogreen:content")
 	public HippoHtml getContent() {
 		return getHippoHtml(CONTENT);
@@ -64,6 +76,7 @@ public class NewsDocument extends HippoDocument {
 	 * Get the location of the document.
 	 * @return the location
 	 */
+	@XmlElement
 	@HippoEssentialsGenerated(internalName = "gogreen:location")
 	public String getLocation() {
 		return getProperty(LOCATION);
@@ -73,6 +86,7 @@ public class NewsDocument extends HippoDocument {
 	 * Get the author of the document.
 	 * @return the author
 	 */
+	@XmlElement
 	@HippoEssentialsGenerated(internalName = "gogreen:author")
 	public String getAuthor() {
 		return getProperty(AUTHOR);
@@ -82,6 +96,7 @@ public class NewsDocument extends HippoDocument {
 	 * Get the source of the document.
 	 * @return the source
 	 */
+	@XmlElement
 	@HippoEssentialsGenerated(internalName = "gogreen:source")
 	public String getSource() {
 		return getProperty(SOURCE);
